@@ -5,6 +5,8 @@ const router = express.Router();
 const userController = require('../Controller/userController');
 userRouter.post('/Signup', authController.signUp);
 userRouter.post('/Login', authController.login);
+userRouter.post('/forgotPassword', authController.forgetPassword);
+userRouter.patch('/resetPassword/:token', authController.resetPassword);
 
 userRouter
   .route('/')

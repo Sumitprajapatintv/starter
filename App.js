@@ -10,14 +10,16 @@ const port = 8080;
 app.use(express.json());
 app.use(express.static(`${__dirname}/public`));
 
-console.log(process.env.NODE_ENV);
+console.log('env node ', process.env.NODE_ENV);
 
 if (process.env.NODE_ENV === 'devlopment') {
   app.use(morgan('dev'));
 }
+app.use(morgan('dev'));
 
 app.use((req, res, next) => {
   req.requestTimeAt = new Date().toISOString();
+  //
   next();
 });
 
